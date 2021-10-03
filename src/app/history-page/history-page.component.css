@@ -1,0 +1,14 @@
+.history__img {
+    height: 100px;
+    width: 150px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.history__line {
+   display: flex;
+   justify-content: space-between;
+}
+.history__line {
+    padding: 20px 0;
+}

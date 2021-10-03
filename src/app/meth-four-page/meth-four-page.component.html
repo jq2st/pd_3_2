@@ -1,0 +1,8 @@
+<h2 class="content method">{{method}}</h2>
+<h2 class="content step">{{'Шаг ' + step}}</h2>
+<div [ngSwitch]="step">
+    <app-meth-four-step1 *ngSwitchCase="1" (onNext)="nextStep()" (onImageChoosen)="setChoosenImage($event)"></app-meth-four-step1>
+    <app-meth-four-step2 *ngSwitchCase="2" (onNext)="nextStep()" (onLast)="lastStep()" (onResult)="getResult($event)"></app-meth-four-step2>
+    <app-meth-four-step3 *ngSwitchCase="3" [methodResult]="_result" (onLast)="lastStep()"></app-meth-four-step3>
+</div>
+

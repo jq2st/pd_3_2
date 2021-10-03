@@ -1,0 +1,29 @@
+.log-form {
+    display: flex;
+    justify-content: center;
+}
+.log-form__form {
+    margin: 50px auto;
+    padding: 50px 20px;
+    border: 1px solid grey;
+    border-radius: 7px;
+    transition: .2s;
+}
+.log-form__form:hover {
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
+}
+.log-form__form span {
+    font-size: 30px;
+}
+.log-form__form input {
+    padding: 5px;
+    height: 30px;
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid grey;
+    outline: none;
+}
+.log-form__form button {
+    margin-top: 30px;
+}

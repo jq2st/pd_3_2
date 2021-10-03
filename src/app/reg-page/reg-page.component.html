@@ -1,0 +1,12 @@
+<div class="content">
+    <div class="log-form">
+        <div class="log-form__form">
+            <form (submit)="reg()" [formGroup]="form">
+                <span>Регистрация</span><span> | </span><span [routerLink]="'/login'" class="secondary-text">Вход</span>
+                <input type="text" placeholder="Логин" formControlName="login">
+                <input type="password" placeholder="Пароль" formControlName="password" autocomplete="off">
+                <button type="submit" class="btn" [ngClass]="form.valid ? 'btn_enabled' : 'btn_disabled'">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</div>

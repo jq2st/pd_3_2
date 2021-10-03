@@ -1,0 +1,7 @@
+<div class="codeCanvas">
+    <canvas #m3s2c1 (click)="renderCode($event)"></canvas>
+</div>
+<div class="btns">
+    <button (click)="lastStep()" class="btn btn_enabled" style="margin-right: 2px;">Назад</button>
+    <button (click)="nextStep()" [disabled]="!isChoosen" [ngClass]="{btn: true, btn_enabled: isChoosen, btn_disabled: !isChoosen}">Далее</button>
+</div>

@@ -1,0 +1,11 @@
+<h2 class="choose_channelH content">Выберите количество уровней светлоты для изъятия в жёлтом канале</h2>
+<div class="codeInput content">
+    <input type="range" min="20" max="30" [(ngModel)]="codeNum">
+    <div class="num">
+        {{codeNum}}
+    </div>
+</div>
+<div class="btns">
+    <button (click)="lastStep()" class="btn btn_enabled" style="margin-right: 2px;">Назад</button>
+    <button (click)="nextStep()" class="btn btn_enabled">Далее</button>
+</div>

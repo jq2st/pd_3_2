@@ -1,0 +1,28 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Изображение </mat-header-cell>
+      <mat-cell *matCellDef="let element"><img [src]="element.imageUrl" alt=""></mat-cell>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <mat-header-cell *matHeaderCellDef> Дата </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.date | date : 'hh:mm dd MMM y'}} </mat-cell>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef> Результат проверки </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.result}} </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>

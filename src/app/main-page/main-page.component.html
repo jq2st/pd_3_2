@@ -1,0 +1,37 @@
+<div class="content">
+  <div class="main-menu-line">
+    <h1>СМАРТ МАРКИРОВКА<br>ДЛЯ ЗАЩИТЫ ПРОДУКЦИИ</h1>
+    <div class="user-signin" [routerLink]="'/login'" *ngIf="!auth.isAuth(); else noauth_log">
+      <div class="user-signin__img"></div>
+      Войти
+    </div>
+  </div>
+  <button class="btn btn_enabled btn-check-img" [routerLink]="['/check']">Проверить изображение на наличие метки</button>
+  <div *ngIf="auth.isAuth(); else noauth">
+    <h2>Выберете метод защиты:</h2>
+    <div class="methods">
+      <div class="btn"><a [routerLink]="['/methone']"><h2>Изъятие нескольких уровней в диапазоне канала</h2></a><div class="hoverp1"><p></p></div></div>
+      <div class="btn"><a [routerLink]="['/methtwo']"><h2>Введение штрихового кода в тоновый диапазон канала RGB</h2></a><div class="hoverp1"><p></p></div></div>
+      <div class="btn"><a [routerLink]="['/meththree']"><h2>Введение 2D штрихового кода (QR) в цифровое изображение</h2></a><div class="hoverp1"><p></p></div></div>
+      <div class="btn"><a [routerLink]="['/methfour']"><h2>Изъятие 20-30 уровней в диапазоне</h2></a><div class="hoverp1"><p></p></div></div>
+      <div class="btn"><a [routerLink]="['/methfive']"><h2>Введение флуоресцентного тонера</h2></a><div class="hoverp1"><p></p></div></div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noauth>
+  <p class="noauth">Для введения метки необходимо войти.</p>
+</ng-template>
+
+<ng-template #noauth_log>
+  <div class="user-signin">
+    <!-- <div class="user-signin__item" [routerLink]="'/history'">
+      <div class="user-signin__img_history"></div>
+      <div class="user-signin__history">История меток</div>
+    </div> -->
+    <div class="user-signin__item"  (click)="auth.logout()">
+      <div class="user-signin__img_logout"></div>
+      Выйти
+    </div>
+  </div>
+</ng-template>

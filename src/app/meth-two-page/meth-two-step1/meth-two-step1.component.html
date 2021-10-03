@@ -1,0 +1,56 @@
+<div class="choose_file">
+    <label for="image_upload" class="upload_label">Выберите изображение для загрузки (PNG, JPG)</label>
+    <input type="file" id="image_upload" (change)="addPic($event.target.files)">
+</div>
+<section [ngStyle]="{display: isImageLoaded ? 'block' : 'none'}">
+    <div class="canvasImage">
+        <div class="image-preview" [ngStyle]="{backgroundImage: 'url('+ imgUrl +')', width: imgDivWidth + 'px', height: imgDivHeight + 'px'}"></div>
+    </div>
+    <h2 class="choose_channelH content">Выберите один из каналов RGB</h2>
+    <div class="channels">
+        <div class="channels__grid_rgb">
+            <div class="canvas_gholder" (click)="chooseChannel('r')">
+                <canvas baseChart 
+                [datasets]="barChartData1"
+                [labels]="barChartLabels1"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColor1">
+                </canvas>
+                <div class="galka" *ngIf="choosenChannel == 'r'"></div>
+            </div>
+            <div class="canvas_gholder" (click)="chooseChannel('g')">
+                <canvas baseChart 
+                [datasets]="barChartData2"
+                [labels]="barChartLabels2"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColor2">
+                </canvas>
+                <div class="galka" *ngIf="choosenChannel == 'g'"></div>
+            </div>
+            <div class="canvas_gholder" (click)="chooseChannel('b')">
+                <canvas baseChart 
+                [datasets]="barChartData3"
+                [labels]="barChartLabels3"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColor3">
+                </canvas>
+                <div class="galka" *ngIf="choosenChannel == 'b'"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="loading" *ngIf="isLoading">
+    <p>Загрузка</p>
+</div>
+<div class="btns" *ngIf="isImageLoaded">
+    <button (click)="nextStep()" [disabled]="!(isChoosen && isImageLoaded)" [ngClass]="{btn: true, btn_enabled: (isChoosen && isImageLoaded), btn_disabled: !(isChoosen && isImageLoaded)}">Далее</button>
+</div>

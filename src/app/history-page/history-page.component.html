@@ -1,0 +1,12 @@
+<div class="content">
+    <h2 class="method">История введения меток</h2>
+    <p *ngIf="labels.length < 1">Ваша история введения меток пуста.</p>
+    <div class="history">
+        <div class="history__line" *ngFor="let l of labels">
+            <img class="history__cell history__img" [ngStyle]="{'background-image': 'url(http://localhost:5000/' + l.linkImgAfter.replace('\\', '/') + ')'}">
+            <div class="history__cell">{{compare[l.type]}}</div>
+            <div class="history__cell">{{l.date | date: 'short'}}</div>
+            <div class="history__cell" style="cursor: pointer;" (click)="getFile('http://localhost:5000/' + l.linkImgAfter.replace('\\', '/'))">Открыть оригинал</div>
+        </div>
+    </div>
+</div>

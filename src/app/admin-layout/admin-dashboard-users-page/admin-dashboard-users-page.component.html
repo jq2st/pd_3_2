@@ -1,0 +1,20 @@
+<ng-container *ngIf="isLoading">
+    <app-loader></app-loader>
+</ng-container>
+<ng-container *ngIf="users.length > 0">
+    <h2>Пользователи</h2>
+    <mat-table [dataSource]="users" class="mat-elevation-z8">
+        <ng-container matColumnDef="login">
+            <mat-header-cell *matHeaderCellDef>Пользователь</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.login}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="role">
+            <mat-header-cell *matHeaderCellDef>Роль</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.role}}</mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</ng-container>

@@ -1,0 +1,21 @@
+<div class="content">
+    <h2 class="content method">Проверка изображения на наличие метки</h2>
+    <div class="choose_file">
+        <label for="image_upload" class="upload_label">Выберите изображение для проверки (PNG, JPG)</label>
+        <input type="file" id="image_upload" (change)="addPic($event.target.files)">
+    </div>
+    <section [ngStyle]="{display: isImageLoaded ? 'block' : 'none'}">
+        <canvas style="display: none" #m1s1c1></canvas>
+        <div class="canvasImage">
+            <div class="canvasImage__img" [ngStyle]="{backgroundImage: 'url('+ imgUrl +')', width: imgDivWidth + 'px', height: imgDivHeight + 'px'}"></div>
+        </div>
+    </section>
+    <div class="loading" *ngIf="isLoading">
+        <p>Загрузка</p>
+    </div>
+    <div class="btns" *ngIf="isImageLoaded">
+        <button (click)="checkImg()" [ngClass]="{btn: true, btn_enabled: true}">Проверить</button>
+    </div>
+</div>
+
+<app-checkimg-result *ngIf="isResult" [result]="result" (onClose)="isResult = false"></app-checkimg-result>

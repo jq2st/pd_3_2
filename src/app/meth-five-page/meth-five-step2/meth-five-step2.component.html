@@ -1,0 +1,26 @@
+<h2 class="choose_channelH content">Выберите параметры для канала FLU</h2>
+<div class="controls content">
+    <div class="control">
+        <p>{{'Размытие: ' + blurRadius}}</p>
+        <input type="range" min="0" max="20" [(ngModel)]="blurRadius" (change)="changeValues()">
+    </div>
+    <div class="control">
+        <p>{{'Нижний порог: ' + trasholdL}}</p>
+        <input type="range" min="0" max="100" [(ngModel)]="trasholdL" (change)="changeValues()">
+    </div>
+    <div class="control">
+        <p>{{'Верхний порог: ' + trasholdU}}</p>
+        <input type="range" min="0" max="100" [(ngModel)]="trasholdU" (change)="changeValues()">
+    </div>
+</div>
+<div class="codeCanvas" [ngStyle]="{display: isLoading ? 'none' : 'block'}">
+    <canvas #m5s2c1 style="display: none"></canvas>
+    <div class="canvasImage">
+        <div class="canvasImage__img" [ngStyle]="{backgroundImage: 'url('+ imgUrl +')', width: imgDivWidth + 'px', height: imgDivHeight + 'px'}"></div>
+    </div>
+</div>
+<div class="loading" *ngIf="isLoading">Загрузка...</div>
+<div class="btns">
+    <button (click)="lastStep()" class="btn btn_enabled" style="margin-right: 2px;">Назад</button>
+    <button (click)="nextStep()" class="btn btn_enabled">Далее</button>
+</div>

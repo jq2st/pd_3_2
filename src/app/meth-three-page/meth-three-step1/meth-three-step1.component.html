@@ -1,0 +1,36 @@
+<div class="choose_file">
+    <label for="image_upload" class="upload_label">Выберите изображение для загрузки (PNG, JPG)</label>
+    <input type="file" id="image_upload" (change)="addPic($event.target.files)">
+</div>
+<div class="choose_file" *ngIf="imgUrl">
+    <label for="code_upload" class="upload_label">Выберите код для загрузки (PNG, JPG)</label>
+    <input type="file" id="code_upload" (change)="addCode($event.target.files)">
+</div>
+<section *ngIf="imgUrl">
+    <div class="canvasImage">
+        <div class="canvasImage__img" [ngStyle]="{backgroundImage: 'url('+ imgUrl +')'}"></div>
+        <div class="canvasImage__img" [ngStyle]="{backgroundImage: 'url('+ imgCodeUrl +')'}"></div>
+    </div>
+    <ng-container *ngIf="!isLoading">
+        <h2 class="choose_channelH content">Выберите один из каналов RGB</h2>
+        <div class="channels content">
+            <div class="channels__grid_rgb">
+                <div class="imageChannels" [ngStyle]="{backgroundImage: 'url('+ colorLayers.colorLayerURIR +')'}" (click)="chooseChannel('r')">
+                    <div class="galka" *ngIf="choosenChannel == 'r'"></div>
+                </div>
+                <div class="imageChannels" [ngStyle]="{backgroundImage: 'url('+ colorLayers.colorLayerURIG +')'}" (click)="chooseChannel('g')">
+                    <div class="galka" *ngIf="choosenChannel == 'g'"></div>
+                </div>
+                <div class="imageChannels" [ngStyle]="{backgroundImage: 'url('+ colorLayers.colorLayerURIB +')'}" (click)="chooseChannel('b')">
+                    <div class="galka" *ngIf="choosenChannel == 'b'"></div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</section>
+<div class="loading" *ngIf="isLoading">
+    <p>Загрузка</p>
+</div>
+<div class="btns" *ngIf="isImageLoaded">
+    <button (click)="nextStep()" [disabled]="!(isChoosen && isImageLoaded && codeImageLoaded)" [ngClass]="{btn: true, btn_enabled: (isChoosen && isImageLoaded && codeImageLoaded), btn_disabled: !(isChoosen && isImageLoaded && codeImageLoaded)}">Далее</button>
+</div>

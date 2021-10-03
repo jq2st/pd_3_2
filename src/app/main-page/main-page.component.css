@@ -1,0 +1,83 @@
+h1 {
+    margin: 50px 0 20px;
+}
+.btn a {
+    color: grey;
+    text-decoration: none;
+}
+.btn a:hover {
+    color: black;
+}
+.methods {
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+.btn-check-img {
+    font-size: 30px;
+    margin-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.main-menu-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-signin {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.user-signin__img {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    background-image: url('/assets/img/user.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.user-signin__img_logout {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    background-size: contain;
+    background-image: url('/assets/img/logout.svg');
+    background-repeat: no-repeat;
+}
+.user-signin__img_history {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    background-size: contain;
+    background-image: url('/assets/img/history.svg');
+    background-repeat: no-repeat;
+}
+.noauth {
+    font-size: 25px;
+}
+.user-signin__history {
+    margin-right: 30px;
+}
+.user-signin__item {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 700px) {
+    .methods {
+        grid-template-columns: 1fr 1fr;
+    }
+    .main-menu-line {
+        flex-direction: column;
+        padding-bottom: 40px;
+    }
+}
+@media (max-width: 500px) {
+    .methods {
+        grid-template-columns: 1fr;
+    }
+}

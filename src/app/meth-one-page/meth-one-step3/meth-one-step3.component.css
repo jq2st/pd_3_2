@@ -1,0 +1,11 @@
+.canvasImage {
+    display: flex;
+    justify-content: center;
+}
+.canvasImage__img {
+    height: 600px;
+    width: 1000px;
+    border: 6px solid white;
+    box-shadow: 0px 3px 5px #252525;
+    background-size: cover;
+}

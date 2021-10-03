@@ -1,0 +1,8 @@
+<canvas #m5s3c1 style="display: none"></canvas>
+<div class="canvasImage">
+    <div class="canvasImage__img" [ngStyle]="{backgroundImage: 'url('+ imgUrl +')', width: imgDivWidth + 'px', height: imgDivHeight + 'px'}"></div>
+</div>
+<div class="btns">
+    <button class="btn btn_enabled" (click)="lastStep()" style="margin-right: 2px;">Назад</button>
+    <button class="btn btn_enabled" (click)="saveImage()">Сохранить</button>
+</div>

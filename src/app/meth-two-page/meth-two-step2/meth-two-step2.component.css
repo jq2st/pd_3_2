@@ -1,0 +1,9 @@
+.codeInput {
+    display: flex;
+    justify-content: center;
+}
+.codeInput input {
+    text-align: center;
+    height: 30px;
+    width: 1200px;
+}

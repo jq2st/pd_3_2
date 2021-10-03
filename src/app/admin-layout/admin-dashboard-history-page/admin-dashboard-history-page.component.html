@@ -1,0 +1,40 @@
+<ng-container *ngIf="isLoading">
+    <app-loader></app-loader>
+</ng-container>
+<ng-container *ngIf="history.length > 0">
+    <h2>История меток</h2>
+    <mat-table [dataSource]="history" class="mat-elevation-z8">
+        <ng-container matColumnDef="imageBefore">
+            <mat-header-cell *matHeaderCellDef> Изображение До</mat-header-cell>
+            <mat-cell *matCellDef="let element"><a [href]="'/api/' + element.linkImgBefore" target="_blank"><img [src]="'/api/' + element.linkImgBefore" alt=""></a></mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="imageAfter">
+            <mat-header-cell *matHeaderCellDef> Изображение После </mat-header-cell>
+            <mat-cell *matCellDef="let element"><a [href]="'/api/' + element.linkImgAfter" target="_blank"><img [src]="'/api/' + element.linkImgAfter" alt=""></a></mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef> Дата </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.date | date : 'hh:mm dd MMM y'}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef> Метод </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.type}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="info">
+            <mat-header-cell *matHeaderCellDef> Параметры </mat-header-cell>
+            <mat-cell *matCellDef="let element"><a *ngIf="element.info" [href]="'/api/' + element.info" target="_blank"><img [src]="'/api/' + element.info"></a></mat-cell>
+        </ng-container>
+    
+        <!-- <ng-container matColumnDef="user">
+            <mat-header-cell *matHeaderCellDef> Пользователь </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.user}}</mat-cell>
+        </ng-container> -->
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</ng-container>

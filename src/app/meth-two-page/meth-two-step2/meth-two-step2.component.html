@@ -1,0 +1,8 @@
+<h2 class="choose_channelH content">Введите код из нулей и единиц</h2>
+<div class="codeInput">
+    <input type="text" [(ngModel)]="codeString">
+</div>
+<div class="btns">
+    <button (click)="lastStep()" class="btn btn_enabled" style="margin-right: 2px;">Назад</button>
+    <button (click)="nextStep()" [disabled]="codeString.length!=128" [ngClass]="{btn: true, btn_enabled: codeString.length == 128, btn_disabled: codeString.length != 128}">Далее</button>
+</div>

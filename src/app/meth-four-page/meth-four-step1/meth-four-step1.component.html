@@ -1,0 +1,63 @@
+<div class="choose_file">
+    <label for="image_upload" class="upload_label">Выберите изображение для загрузки (PNG, JPG)</label>
+    <input type="file" id="image_upload" (change)="addPic($event.target.files)">
+</div>
+<section [ngStyle]="{display: isImageLoaded ? 'block' : 'none'}">
+    <div class="canvasImage">
+        <div class="canvasImage__img" [ngStyle]="{backgroundImage: 'url('+ imgUrl +')'}"></div>
+    </div>
+    <div class="channels">
+        <div class="channels__grid_cmyk">
+            <div class="canvas_gholder">
+                <canvas baseChart 
+                [datasets]="barChartData1"
+                [labels]="barChartLabels1"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColor1">
+                </canvas>
+            </div>
+            <div class="canvas_gholder">
+                <canvas baseChart 
+                [datasets]="barChartData2"
+                [labels]="barChartLabels2"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColor2">
+                </canvas>
+            </div>
+            <div class="canvas_gholder">
+                <canvas baseChart 
+                [datasets]="barChartData3"
+                [labels]="barChartLabels3"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColor3">
+                </canvas>
+            </div>
+            <div class="canvas_gholder">
+                <canvas baseChart 
+                [datasets]="barChartData4"
+                [labels]="barChartLabels4"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColor4">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="loading" *ngIf="isLoading">
+    <p>Загрузка</p>
+</div>
+<div class="btns" *ngIf="isImageLoaded">
+    <button (click)="nextStep()" class="btn btn_enabled">Далее</button>
+</div>

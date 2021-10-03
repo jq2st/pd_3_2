@@ -1,0 +1,15 @@
+<div class="choose_file">
+    <label for="image_upload" class="upload_label">Выберите изображение для загрузки (PNG, JPG)</label>
+    <input type="file" id="image_upload" (change)="addPic($event.target.files)">
+</div>
+<section [ngStyle]="{display: isImageLoaded ? 'block' : 'none'}">
+    <div class="canvasImage">
+        <div class="canvasImage__img" [ngStyle]="{backgroundImage: 'url('+ imgUrl +')'}"></div>
+    </div>
+</section>
+<div class="loading" *ngIf="isLoading">
+    <p>Загрузка</p>
+</div>
+<div class="btns" *ngIf="isImageLoaded">
+    <button (click)="nextStep()" class="btn btn_enabled">Далее</button>
+</div>

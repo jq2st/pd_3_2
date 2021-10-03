@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+app-root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+html, body {
+    height: 100%;
+}
+header {
+    padding: 20px 0 10px;
+    background-color: #252525;
+    color: white;
+}
+main {
+    flex-grow: 1;
+}
+footer {
+    background-color: #eeeeee;
+    padding: 10px 20px 5px;  
+}
+.content {
+    margin: 0 auto;
+    width: 1600px;
+}
+.step {
+    margin-top: 80px;
+    font-size: 50px;
+}
+.method {
+    margin-top: 10px;
+    font-size: 30px;
+}
+input[type="file"] {
+    display: none;
+}
+.upload_label {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #252525;
+    color: white;
+}
+.btns {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+.btn {
+    padding: 0 5px;
+    min-height: 30px;
+    min-width: 100px;
+    border: none;
+}
+.btn_enabled {
+    background-color: #252525;
+    color: white;
+    cursor: pointer;
+}
+.btn_diabled {
+    background-color: lightgrey;
+    color: black;
+}
+.galka {
+    height: 100px;
+    width: 100px;
+    left: 55%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/assets/img/galka.png');
+}
+.toMainPage {
+    margin-right: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color: grey;
+}
+.choose_channelH {
+    margin: 60px auto 20px auto;
+}
+.channels {
+    margin: 50px auto;
+    width: 1600px;
+}
+.channels__grid_rgb {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.channels__grid_cmyk {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+.secondary-text {
+    color: grey;
+    cursor: pointer;
+}
+.image-preview {
+    width: 900px;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+@media (max-width: 1600px) {
+    .content {
+        padding: 0 20px;
+        width: 100%;
+    }
+    .channels {
+        width: 100%;
+    }
+}
+@media (max-width: 700px) {
+    .channels__grid_rgb, .channels__grid_cmyk {
+        grid-template-columns: 1fr;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
