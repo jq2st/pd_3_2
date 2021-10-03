@@ -44,7 +44,7 @@ export class MethThreePageComponent implements OnInit {
     this.choosenCodePosition = codePosition
   }
 
-  getResult() {
+  getResult(event: any) {
     if (!this.choosenImage) {
       return
     }

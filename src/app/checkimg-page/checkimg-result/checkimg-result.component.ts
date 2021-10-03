@@ -10,7 +10,7 @@ export class CheckimgResultComponent implements OnInit {
   @Input('result') inResult
   @Output() onClose: EventEmitter<any> = new EventEmitter()
 
-  result = {}
+  result: any = {}
 
   constructor() { }
 
