@@ -6,12 +6,12 @@
     <mat-table [dataSource]="history" class="mat-elevation-z8">
         <ng-container matColumnDef="imageBefore">
             <mat-header-cell *matHeaderCellDef> Изображение До</mat-header-cell>
-            <mat-cell *matCellDef="let element"><a [href]="'/api/' + element.linkImgBefore" target="_blank"><img [src]="'/api/' + element.linkImgBefore" alt=""></a></mat-cell>
+            <mat-cell *matCellDef="let element"><a [href]="'https://pd-markerovka2-nest.herokuapp.com/' + element.linkImgBefore" target="_blank"><img [src]="'https://pd-markerovka2-nest.herokuapp.com/' + element.linkImgBefore" alt=""></a></mat-cell>
         </ng-container>
     
         <ng-container matColumnDef="imageAfter">
             <mat-header-cell *matHeaderCellDef> Изображение После </mat-header-cell>
-            <mat-cell *matCellDef="let element"><a [href]="'/api/' + element.linkImgAfter" target="_blank"><img [src]="'/api/' + element.linkImgAfter" alt=""></a></mat-cell>
+            <mat-cell *matCellDef="let element"><a [href]="'https://pd-markerovka2-nest.herokuapp.com/' + element.linkImgAfter" target="_blank"><img [src]="'https://pd-markerovka2-nest.herokuapp.com/' + element.linkImgAfter" alt=""></a></mat-cell>
         </ng-container>
     
         <ng-container matColumnDef="date">
@@ -26,7 +26,7 @@
     
         <ng-container matColumnDef="info">
             <mat-header-cell *matHeaderCellDef> Параметры </mat-header-cell>
-            <mat-cell *matCellDef="let element"><a *ngIf="element.info" [href]="'/api/' + element.info" target="_blank"><img [src]="'/api/' + element.info"></a></mat-cell>
+            <mat-cell *matCellDef="let element"><a *ngIf="element.info" [href]="'https://pd-markerovka2-nest.herokuapp.com/' + element.info" target="_blank"><img [src]="'https://pd-markerovka2-nest.herokuapp.com/' + element.info"></a></mat-cell>
         </ng-container>
     
         <!-- <ng-container matColumnDef="user">

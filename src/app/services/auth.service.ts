@@ -8,11 +8,12 @@ import { tap } from 'rxjs/operators';
 export class AuthService {
 
   private token = null
+  private _serverUrl = 'https://pd-markerovka2-nest.herokuapp.com'
 
   constructor(private http: HttpClient) { }
 
   login(user) {
-    return this.http.post<{token}>('/api/auth/login', user)
+    return this.http.post<{token}>(this._serverUrl + '/auth/login', user)
       .pipe(
         tap(({token}) => {
           localStorage.setItem('auth-token', token)
@@ -41,7 +42,7 @@ export class AuthService {
   }
 
   reg(user) {
-    return this.http.post('/api/auth/sign_up', user)
+    return this.http.post(this._serverUrl + '/auth/sign_up', user)
   }
 
 }

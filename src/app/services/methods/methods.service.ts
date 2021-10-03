@@ -6,6 +6,8 @@ import { Injectable } from "@angular/core";
 })
 export class MethodsService {
 
+    _serverUrl = 'https://pd-markerovka2-nest.herokuapp.com/'
+
     constructor(private http: HttpClient) {}
 
     methodI2030(image: File, params: any) {
@@ -13,7 +15,7 @@ export class MethodsService {
         const formData: FormData = new FormData()
         formData.append('image', image, image.name)
         formData.append('params', JSON.stringify(params))
-        return this.http.post('/api/methods/method-I2030/result', formData)
+        return this.http.post(this._serverUrl +'/methods/method-I2030/result', formData)
     }
 
     methodIRGB(image: File, params: any) {
@@ -21,7 +23,7 @@ export class MethodsService {
         const formData: FormData = new FormData()
         formData.append('image', image, image.name)
         formData.append('params', JSON.stringify(params))
-        return this.http.post('/api/methods/method-IRGB/result', formData)
+        return this.http.post(this._serverUrl +'/methods/method-IRGB/result', formData)
     }
 
     methodBC(image: File, params: any) {
@@ -29,7 +31,7 @@ export class MethodsService {
         const formData: FormData = new FormData()
         formData.append('image', image, image.name)
         formData.append('params', JSON.stringify(params))
-        return this.http.post('/api/methods/method-BC/result', formData)
+        return this.http.post(this._serverUrl + '/methods/method-BC/result', formData)
     }
     
     methodQR(image, code, params) {
@@ -38,26 +40,26 @@ export class MethodsService {
         formData.append('code', code, code.name)
         formData.append('params', JSON.stringify(params))
         console.log(params)
-        return this.http.post('/api/methods/method-QR/result', formData)
+        return this.http.post(this._serverUrl + '/methods/method-QR/result', formData)
     }
 
     getColorLayersRGB(image: any) {
         const formData: FormData = new FormData()
         formData.append('image', image, image.name)
-        return this.http.post('/api/methods/color-layers/rgb', formData)
+        return this.http.post(this._serverUrl + '/methods/color-layers/rgb', formData)
     }
 
     getChartsValuesRGB(image: any) {
         console.error(image)
         const formData: FormData = new FormData()
         formData.append('image', image, image.name)
-        return this.http.post('/api/methods/charts-values/rgb', formData)
+        return this.http.post(this._serverUrl + '/methods/charts-values/rgb', formData)
     }
 
     getChartsValuesCMYK(image: any) {
         const formData: FormData = new FormData()
         formData.append('image', image, image.name)
-        return this.http.post('/api/methods/charts-values/cmyk', formData)
+        return this.http.post(this._serverUrl + '/methods/charts-values/cmyk', formData)
     }
 
 }

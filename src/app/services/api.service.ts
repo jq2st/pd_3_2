@@ -6,13 +6,15 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
+  _serverUrl = 'https://pd-markerovka2-nest.herokuapp.com/'
+
   constructor(private http: HttpClient) { }
 
   checkImg(img, size) {
     let fd = new FormData()
     fd.append('image', img, img.name)
     fd.append('size', size)
-    return this.http.post('/api/check', fd)
+    return this.http.post(this._serverUrl + 'check', fd)
   }
 
   addToDb(type, img, size) {
@@ -20,15 +22,15 @@ export class ApiService {
     fd.append('image', img, img.name)
     fd.append('size', size)
     fd.append('type', type)
-    return this.http.post('/api/methods/' + type, fd)
+    return this.http.post(this._serverUrl + 'methods/' + type, fd)
   }
 
   getHistory() {
-    return this.http.get('/api/history')
+    return this.http.get(this._serverUrl + 'history')
   }
 
   m5updateEdges(blurRadius, trasholdL, trasholdU) {
-    return this.http.post('/api/methods/5', {blurRadius, trasholdL, trasholdU})
+    return this.http.post(this._serverUrl + 'methods/5', {blurRadius, trasholdL, trasholdU})
   }
 
  dataURItoBlob(dataURI) {

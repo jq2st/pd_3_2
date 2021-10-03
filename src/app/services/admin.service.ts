@@ -6,10 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class AdminService {
 
+  _serverUrl = 'https://pd-markerovka2-nest.herokuapp.com'
+
   constructor(private http: HttpClient) { }
 
   getHistory() {
-    return this.http.get(`/api/admin/history`)
+    return this.http.get(`${this._serverUrl}/admin/history`)
   }
 
   getQueries() {
@@ -17,6 +19,6 @@ export class AdminService {
   }
 
   getUsers() {
-    return this.http.get(`/api/admin/users`)
+    return this.http.get(`${this._serverUrl}/admin/users`)
   }
 }
